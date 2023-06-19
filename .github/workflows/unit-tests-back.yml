@@ -4,15 +4,19 @@ on:
   pull_request:
     branches: [ "master" ]
 
-steps:
-  - uses: actions/checkout@v3
+jobs:
+  run-unit-tests:
+    runs-on: ubuntu-latest
 
-  - uses: actions/setup-java@v3
-    with:
-      distribution: 'coretto'
-      java-version: '11'
-      cache: 'maven'
+    steps:
+      - uses: actions/checkout@v3
 
-  - name: Build with Maven and run unit tests
-    working-directory: freservation-back
-    run: mvn clean install
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'coretto'
+          java-version: '11'
+          cache: 'maven'
+
+      - name: Build with Maven and run unit tests
+        working-directory: freservation-back
+        run: mvn clean install
