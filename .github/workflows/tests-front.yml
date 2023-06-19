@@ -28,6 +28,7 @@ jobs:
           echo ${{ github.workspace }}
           echo $GITHUB_WORKSPACE
           echo $GITHUB_ENV
+          ls
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
