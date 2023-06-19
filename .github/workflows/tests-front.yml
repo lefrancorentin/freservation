@@ -10,7 +10,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
+  Test-front:
     runs-on: ubuntu-latest
 
     strategy:
