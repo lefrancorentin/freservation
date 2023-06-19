@@ -21,16 +21,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          path: 'freservation/freservation'
+          path: 'freservation/freservation/freservation'
 
       - name: Get variable infos
         run: |
           echo ${{ github.workspace }}
           echo $GITHUB_WORKSPACE
           echo $GITHUB_ENV
-          ls
-          ls ..
-          ls freservation
+          pwd
           tree
 
       - name: Use Node.js ${{ matrix.node-version }}
