@@ -1,6 +1,6 @@
 on:
   push:
-    branches: [ "master", "feat/basic-booking-controller" ]
+    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
