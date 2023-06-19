@@ -37,7 +37,7 @@ jobs:
           cache-dependency-path: freservation-front/package-lock.json
 
       - name: Install dependencies
-        working-directory: freservation-front
+        # working-directory: freservation-front
         run: npm ci
 
       # - run: npm run build --if-present
