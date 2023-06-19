@@ -20,6 +20,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          path: 'freservation'
+
+      - name: Get variable infos
+        run: |
+          echo ${{ github.workspace }}
+          echo $GITHUB_WORKSPACE
+          echo $GITHUB_ENV
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
@@ -28,11 +36,11 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        working-directory: freservation/freservation-front
+        working-directory: freservation-front
         run: npm ci
 
       # - run: npm run build --if-present
 
       - name: Run tests
-        working-directory: freservation/freservation-front
+        working-directory: freservation-front
         run: npm test
