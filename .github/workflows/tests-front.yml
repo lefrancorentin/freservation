@@ -28,11 +28,11 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        working-directory: freservation-front
+        working-directory: freservation/freservation-front
         run: npm ci
 
       # - run: npm run build --if-present
 
       - name: Run tests
-        working-directory: freservation-front
+        working-directory: freservation/freservation-front
         run: npm test
