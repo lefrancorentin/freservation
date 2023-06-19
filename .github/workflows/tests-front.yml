@@ -34,6 +34,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+          cache-dependency-path: "./freservation-front/package-lock.json"
 
       - name: Install dependencies
         working-directory: freservation-front
