@@ -29,6 +29,9 @@ jobs:
           echo $GITHUB_WORKSPACE
           echo $GITHUB_ENV
           ls
+          ls ..
+          ls freservation
+          tree
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
