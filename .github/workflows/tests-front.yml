@@ -1,10 +1,11 @@
 # Docs: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+# Available environment variables: https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables
 
 name: Run Angular tests
 
 on:
   push:
-    branches: [ "master", "feat/setup-github-workflow-angular-tests" ]
+    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
@@ -20,9 +21,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
-      - name: Get environment variables
-        run: echo ${{ vars }}
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
