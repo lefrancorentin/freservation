@@ -1,0 +1,40 @@
+# Docs: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+# Available environment variables: https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables
+
+name: Run Angular tests
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: freservation-front/package-lock.json
+
+      - name: Install dependencies
+        working-directory: freservation-front
+        run: npm ci
+
+      # - run: npm run build --if-present
+
+      - name: Run tests
+        working-directory: freservation-front
+        run: npm test
