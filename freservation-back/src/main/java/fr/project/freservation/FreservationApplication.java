@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FreservationApplication {
 
 	public static void main(String[] args) {
-		System.out.println("hey");
 		SpringApplication.run(FreservationApplication.class, args);
 	}
 
