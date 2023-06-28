@@ -1,4 +1,4 @@
-<form class="form">
+<form class="form" (ngSubmit)="onSubmit()">
   <label [for]="firstNameLabel">First Name</label>
   <input type="text" [id]="firstNameLabel" [name]="firstNameLabel" class="form-field" [(ngModel)]="firstNameValue" class="form-element" />
   <label [for]="firstNameLabel">Last Name</label>
@@ -12,8 +12,9 @@
   <label [for]="emailLabel">Email</label>
   <input type="text"  [id]="emailLabel" [name]="emailLabel" [(ngModel)]="emailValue" class="form-element" />
   <label [for]="startingTimeLabel">Starting Time</label>
-  <input type="datetime-local" [id]="startingTimeLabel" [name]="startingTimeLabel"  class="form-element" />
+  <input type="datetime-local" [id]="startingTimeLabel" [name]="startingTimeLabel" [(ngModel)]="startingTimeValue" class="form-element" />
   <label [for]="endingTimeLabel">Ending Time</label>
-  <input type="datetime-local" [id]="endingTimeLabel" [name]="endingTimeLabel"  class="form-element" />
-  <input type="button" value="Submit">
+  <input type="datetime-local" [id]="endingTimeLabel" [name]="endingTimeLabel" [(ngModel)]="endingTimeValue" class="form-element" />
+  <button type="submit">Submit</button>
 </form>
+<p class="log">{{ log }}</p>

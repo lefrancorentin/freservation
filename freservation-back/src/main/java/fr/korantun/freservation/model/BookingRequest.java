@@ -11,6 +11,7 @@ public class BookingRequest {
     private String lastname;
 
     // pète une erreur de deserialization (traduite en http 400) si le json de requete ne fait pas partie de l'enum. Customiser cette erreur ?
+    @NotNull
     private LanguageLevel level;
     @NotBlank
     private String email;
