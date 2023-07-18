@@ -8,7 +8,7 @@
 		<version>2.7.12</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>fr.project</groupId>
+	<groupId>fr.korantun</groupId>
 	<artifactId>freservation-back</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>freservation-back</name>
@@ -83,7 +83,7 @@
 				</executions>
 				<configuration>
 					<jsonLibrary>jackson2</jsonLibrary>
-					<classPatterns>fr.project.freservation.model.*</classPatterns>
+					<classPatterns>fr.korantun.freservation.model.*</classPatterns>
 					<mapEnum>asEnum</mapEnum>
 					<nonConstEnums>true</nonConstEnums>
 					<outputKind>module</outputKind>

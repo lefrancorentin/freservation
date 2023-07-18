@@ -1,12 +1,12 @@
-package fr.project.freservation.controller;
+package fr.korantun.freservation.controller;
 
 import java.time.LocalDateTime;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
-import fr.project.freservation.model.BookingRequest;
-import fr.project.freservation.model.LanguageLevel;
+import fr.korantun.freservation.model.BookingRequest;
+import fr.korantun.freservation.model.LanguageLevel;
 
 class BookingControllerTest {
 

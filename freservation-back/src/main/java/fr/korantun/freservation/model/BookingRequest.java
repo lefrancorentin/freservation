@@ -1,4 +1,4 @@
-package fr.project.freservation.model;
+package fr.korantun.freservation.model;
 
 import java.time.LocalDateTime;
 import javax.validation.constraints.NotBlank;
