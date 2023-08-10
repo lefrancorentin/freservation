@@ -2,13 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+<!--	https://www.baeldung.com/spring-boot-starter-parent-->
+<!--	choix de ne pas spécifier le pom parent freservation pour bénéficier du pom parent spring boot -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.7.12</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>fr.project</groupId>
+	<groupId>fr.korantun</groupId>
 	<artifactId>freservation-back</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>freservation-back</name>
@@ -83,7 +85,7 @@
 				</executions>
 				<configuration>
 					<jsonLibrary>jackson2</jsonLibrary>
-					<classPatterns>fr.project.freservation.model.*</classPatterns>
+					<classPatterns>fr.korantun.freservation.model.*</classPatterns>
 					<mapEnum>asEnum</mapEnum>
 					<nonConstEnums>true</nonConstEnums>
 					<outputKind>module</outputKind>

@@ -1,4 +1,4 @@
-package fr.project.freservation.controller;
+package fr.korantun.freservation.controller;
 
 import javax.validation.Valid;
 
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import fr.project.freservation.model.BookingRequest;
+import fr.korantun.freservation.model.BookingRequest;
 
 @RestController
 // à mettre à un plus haut niveau ? sinon je répète /api pour tous mes controllers
