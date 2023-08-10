@@ -1,8 +1,8 @@
 <form class="form" (ngSubmit)="onSubmit()">
   <label [for]="firstNameLabel">First Name</label>
-  <input type="text" [id]="firstNameLabel" [name]="firstNameLabel" class="form-field" [(ngModel)]="firstNameValue" class="form-element" />
+  <input type="text" [id]="firstNameLabel" [name]="firstNameLabel" [(ngModel)]="firstNameValue" class="form-element" />
   <label [for]="firstNameLabel">Last Name</label>
-  <input type="text" [id]="firstNameLabel" [name]="lastNameLabel" class="form-field" [(ngModel)]="lastNameValue" class="form-element" />
+  <input type="text" [id]="firstNameLabel" [name]="lastNameLabel" [(ngModel)]="lastNameValue" class="form-element" />
   <label [for]="levelLabel">Level</label>
   <select [id]="levelLabel" [name]="levelLabel" [(ngModel)]="levelValue"  class="form-element">
     <ng-container *ngFor="let level of levels | keyvalue">

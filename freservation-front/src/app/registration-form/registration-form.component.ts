@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { BookingRequest, LanguageLevel } from "../../model";
 import { BookingService } from 'src/service/bookingService';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -45,13 +45,15 @@ export class RegistrationFormComponent {
 
   onSubmit() {
     // TODO: fix deprecated
-    this.bookingService.bookTimeSlot(this.constructRequestFromFormValues()).subscribe(response => {
-      this.log = response;
-    },
-    error => {
-      // TODO: 400 OK ?
-      this.log = error.message;
-    });
+    this.bookingService.bookTimeSlot(this.constructRequestFromFormValues()).subscribe(
+      (response: string) => {
+        this.log = response;
+      },
+      (error: HttpErrorResponse) => {
+        // TODO: 400 OK ?
+        console.log(error);
+        this.log = error.message;
+      });
   }
 
   private constructRequestFromFormValues(): BookingRequest {
