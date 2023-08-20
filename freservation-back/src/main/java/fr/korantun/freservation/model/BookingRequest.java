@@ -5,6 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 public class BookingRequest {
+
     @NotBlank
     private String firstname;
     @NotBlank
@@ -28,40 +29,20 @@ public class BookingRequest {
         this.firstname = firstname;
     }
 
-    public String getLastname() {
-        return lastname;
-    }
-
     public void setLastname(final String lastname) {
         this.lastname = lastname;
-    }
-
-    public LanguageLevel getLevel() {
-        return level;
     }
 
     public void setLevel(final LanguageLevel level) {
         this.level = level;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
     public void setEmail(final String email) {
         this.email = email;
     }
 
-    public LocalDateTime getStartTime() {
-        return startTime;
-    }
-
     public void setStartTime(final LocalDateTime startTime) {
         this.startTime = startTime;
-    }
-
-    public LocalDateTime getEndingTime() {
-        return endingTime;
     }
 
     public void setEndingTime(final LocalDateTime endingTime) {

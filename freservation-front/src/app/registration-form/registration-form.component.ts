@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 import { BookingRequest, LanguageLevel } from "../../model";
 import { BookingService } from 'src/service/bookingService';
 import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
-
 
 @Component({
   selector: 'app-registration-form',
@@ -24,9 +23,12 @@ export class RegistrationFormComponent {
   bookingService = inject(BookingService);
   log = "";
 
+  EMAIL_PATTERN  = /[\w.]*\w+@\w+\.\w+/
+
   // voir si reactiveForms c'est mieux plus tard
   // firstNameFormControl = new FormControl();
   // lastNameFormControl = new FormControl();
+  // reactive devrait être plus rapide, faire des tests ? https://angular.io/guide/forms-overview#mutability-of-the-data-model
   levels = LanguageLevel;
 
   firstNameLabel = "firstname";
@@ -40,20 +42,22 @@ export class RegistrationFormComponent {
   lastNameValue = "Default Name";
   levelValue!: LanguageLevel;
   emailValue = "";
-  startingTimeValue = (new Date()).toISOString();
-  endingTimeValue = (new Date()).toISOString();
+  startingTimeValue= "";
+  endingTimeValue = "";
 
-  onSubmit() {
-    // TODO: fix deprecated
-    this.bookingService.bookTimeSlot(this.constructRequestFromFormValues()).subscribe(
-      (response: string) => {
-        this.log = response;
-      },
-      (error: HttpErrorResponse) => {
-        // TODO: 400 OK ?
-        console.log(error);
-        this.log = error.message;
-      });
+  onSubmit(ngForm: NgForm) {
+    if(ngForm.form.valid) {
+      // TODO: fix deprecated
+      this.bookingService.bookTimeSlot(this.constructRequestFromFormValues()).subscribe(
+        (response: string) => {
+          this.log = response;
+        },
+        (error: HttpErrorResponse) => {
+          // TODO: 400 OK ?
+          console.log(error);
+          this.log = error.message;
+        });
+    }
   }
 
   private constructRequestFromFormValues(): BookingRequest {
@@ -62,8 +66,8 @@ export class RegistrationFormComponent {
       lastname: this.lastNameValue,
       level: this.levelValue,
       email: this.emailValue,
-      startTime: new Date(this.startingTimeValue),
-      endingTime: new Date(this.endingTimeValue)
+      startTime: new Date(this.startingTimeValue).toISOString(),
+      endingTime: new Date(this.endingTimeValue).toISOString(),
     }
   }
 }

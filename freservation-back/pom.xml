@@ -86,6 +86,7 @@
 				<configuration>
 					<jsonLibrary>jackson2</jsonLibrary>
 					<classPatterns>fr.korantun.freservation.model.*</classPatterns>
+					<mapDate>asString</mapDate>
 					<mapEnum>asEnum</mapEnum>
 					<nonConstEnums>true</nonConstEnums>
 					<outputKind>module</outputKind>

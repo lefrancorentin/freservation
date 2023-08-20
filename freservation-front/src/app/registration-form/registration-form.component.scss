@@ -1,5 +1,4 @@
 .form {
-  border: solid;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -11,5 +10,11 @@
 
   select.form-element {
     align-self: start;
+  }
+
+  .error {
+    color: red;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
   }
 }

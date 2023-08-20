@@ -1,20 +1,42 @@
-<form class="form" (ngSubmit)="onSubmit()">
-  <label [for]="firstNameLabel">First Name</label>
-  <input type="text" [id]="firstNameLabel" [name]="firstNameLabel" [(ngModel)]="firstNameValue" class="form-element" />
-  <label [for]="firstNameLabel">Last Name</label>
-  <input type="text" [id]="firstNameLabel" [name]="lastNameLabel" [(ngModel)]="lastNameValue" class="form-element" />
-  <label [for]="levelLabel">Level</label>
-  <select [id]="levelLabel" [name]="levelLabel" [(ngModel)]="levelValue"  class="form-element">
-    <ng-container *ngFor="let level of levels | keyvalue">
-      <option>{{ level.value }}</option>
-    </ng-container>
-  </select>
-  <label [for]="emailLabel">Email</label>
-  <input type="text"  [id]="emailLabel" [name]="emailLabel" [(ngModel)]="emailValue" class="form-element" />
-  <label [for]="startingTimeLabel">Starting Time</label>
-  <input type="datetime-local" [id]="startingTimeLabel" [name]="startingTimeLabel" [(ngModel)]="startingTimeValue" class="form-element" />
-  <label [for]="endingTimeLabel">Ending Time</label>
-  <input type="datetime-local" [id]="endingTimeLabel" [name]="endingTimeLabel" [(ngModel)]="endingTimeValue" class="form-element" />
-  <button type="submit">Submit</button>
-</form>
-<p class="log">{{ log }}</p>
+<div>
+  <form class="form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <label [for]="firstNameLabel">Prénom</label>
+    <input type="text" [id]="firstNameLabel" [name]="firstNameLabel" [(ngModel)]="firstNameValue" #firstNameModel="ngModel" class="form-element" required />
+    <div *ngIf="form.submitted && firstNameModel.errors?.['required']" class="error">
+      Le prénom est requis
+    </div>
+    <label [for]="firstNameLabel">Nom de famille</label>
+    <input type="text" [id]="lastNameLabel" [name]="lastNameLabel" [(ngModel)]="lastNameValue" #lastNameModel="ngModel" class="form-element" required />
+    <div *ngIf="form.submitted && lastNameModel.errors?.['required']" class="error">
+      Le nom de famille est requis
+    </div>
+    <label [for]="levelLabel">Niveau de langue</label>
+    <select [id]="levelLabel" [name]="levelLabel" [(ngModel)]="levelValue" #levelModel="ngModel" class="form-element" required>
+      <ng-container *ngFor="let level of levels | keyvalue">
+        <option>{{ level.value }}</option>
+      </ng-container>
+    </select>
+    <div *ngIf="form.submitted && levelModel.errors?.['required']" class="error">
+      Le niveau de langue est requis
+    </div>
+    <label [for]="emailLabel">Email</label>
+    <input type="text"  [id]="emailLabel" [name]="emailLabel" [(ngModel)]="emailValue" #emailModel="ngModel" [pattern]="EMAIL_PATTERN" required class="form-element" />
+    <div *ngIf="form.submitted && emailModel.errors?.['required']" class="error">
+      L'e-mail est requis
+    </div>
+    <div *ngIf="form.submitted && emailModel.errors?.['pattern']" class="error">
+      Le format de l'e-mail est invalide
+    </div>
+    <label [for]="startingTimeLabel">Date et heure de début</label>
+    <input type="datetime-local" [id]="startingTimeLabel" [name]="startingTimeLabel" [(ngModel)]="startingTimeValue" #startingTimeModel="ngModel" required class="form-element" />
+    <div *ngIf="form.submitted && startingTimeModel.errors?.['required']" class="error">
+      L'heure de début désirée est requise
+    </div>
+    <label [for]="endingTimeLabel">Date et heure de fin</label>
+    <input type="datetime-local" [id]="endingTimeLabel" [name]="endingTimeLabel" [(ngModel)]="endingTimeValue" #endingTimeModel="ngModel" required class="form-element" />
+    <div *ngIf="form.submitted && endingTimeModel.errors?.['required']" class="error">
+      L'heure de fin désirée est requise
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
