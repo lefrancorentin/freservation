@@ -1,4 +1,4 @@
-name: Build backend
+name: Compile sources and run backend unit tests
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,6 +19,6 @@ jobs:
           java-version: '11'
           cache: 'maven'
 
-      - name: Build with Maven and run unit tests
+      - name: Compile sources with Maven and run unit tests
         working-directory: freservation-back
-        run: mvn clean install
+        run: mvn test

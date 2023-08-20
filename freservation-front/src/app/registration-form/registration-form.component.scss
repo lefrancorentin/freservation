@@ -1,0 +1,20 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 20vw;
+
+  .form-element {
+    margin-bottom: 1rem;
+  }
+
+  select.form-element {
+    align-self: start;
+  }
+
+  .error {
+    color: red;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+  }
+}
