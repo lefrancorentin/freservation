@@ -19,6 +19,6 @@ jobs:
           java-version: '11'
           cache: 'maven'
 
-      - name: Build with Maven and run unit tests
+      - name: Compile sources with Maven and run unit tests
         working-directory: freservation-back
-        run: mvn clean install
+        run: mvn test
