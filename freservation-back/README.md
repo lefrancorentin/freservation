@@ -4,3 +4,4 @@
 * [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.7.12/maven-plugin/reference/html/)
 * [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.7.12/maven-plugin/reference/html/#build-image)
 * [Spring REST Docs](https://docs.spring.io/spring-restdocs/docs/current/reference/html5/)
+* [Generate Typescript classes plugin](http://www.habarta.cz/typescript-generator/maven/typescript-generator-maven-plugin/generate-mojo.html)
