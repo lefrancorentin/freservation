@@ -14,4 +14,15 @@ export class BookingService {
   bookTimeSlot(body: BookingRequest): Observable<string> {
     return this.httpClient.post(BOOK_URL, body, {responseType: 'text'});
   }
+
+  // Promise version
+  // bookTimeSlot(body: BookingRequest): Promise<Response> {
+  //   return fetch(BOOK_URL, {
+  //     method: 'POST',
+  //     body: JSON.stringify(body),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     }
+  //   });
+  // }
 }

@@ -48,15 +48,15 @@ export class RegistrationFormComponent {
   onSubmit(ngForm: NgForm) {
     if(ngForm.form.valid) {
       // TODO: fix deprecated
-      this.bookingService.bookTimeSlot(this.constructRequestFromFormValues()).subscribe(
-        (response: string) => {
+      this.bookingService.bookTimeSlot(this.constructRequestFromFormValues()).subscribe({
+        next: (response: string) => {
           this.log = response;
         },
-        (error: HttpErrorResponse) => {
+        error: (error: HttpErrorResponse) => {
           // TODO: 400 OK ?
           console.log(error);
           this.log = error.message;
-        });
+        }});
     }
   }
 
