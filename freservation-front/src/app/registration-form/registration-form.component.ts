@@ -47,7 +47,6 @@ export class RegistrationFormComponent {
 
   onSubmit(ngForm: NgForm) {
     if(ngForm.form.valid) {
-      // TODO: fix deprecated
       this.bookingService.bookTimeSlot(this.constructRequestFromFormValues()).subscribe({
         next: (response: string) => {
           this.log = response;
