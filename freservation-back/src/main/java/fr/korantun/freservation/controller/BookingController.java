@@ -1,14 +1,13 @@
 package fr.korantun.freservation.controller;
 
-import javax.validation.Valid;
-
 import fr.korantun.freservation.data.BookingsRepository;
+import fr.korantun.freservation.model.BookingRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import fr.korantun.freservation.model.BookingRequest;
 
-import java.util.Optional;
+import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 // à mettre à un plus haut niveau ? sinon je répète /api pour tous mes controllers
@@ -24,11 +23,8 @@ public class BookingController {
         return ResponseEntity.ok(request.getFirstname() + " made a reservation");
     }
 
-    @GetMapping("/db")
-    public ResponseEntity<BookingRequest> fetchFromDb()
- {
-        Optional<BookingRequest> bookingFromDb = bookingsRepository.findById(2L);
-        System.out.println(bookingFromDb);
-        return ResponseEntity.ok(bookingFromDb.orElse(null));
+    @GetMapping("/bookings")
+    public List<BookingRequest> getAllBookingRequests() {
+        return bookingsRepository.findAll();
     }
 }
