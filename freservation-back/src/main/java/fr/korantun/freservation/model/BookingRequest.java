@@ -1,28 +1,70 @@
 package fr.korantun.freservation.model;
 
-import java.time.LocalDateTime;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 
+@Entity(name = "bookings")
 public class BookingRequest {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @NotBlank
     private String firstname;
+
     @NotBlank
     private String lastname;
 
     // pète une erreur de deserialization (traduite en http 400) si le json de requete ne fait pas partie de l'enum. Customiser cette erreur ?
     @NotNull
+    @Column(name = "languagelevel")
+    @Enumerated(EnumType.STRING)
     private LanguageLevel level;
+
     @NotBlank
     private String email;
+
     @NotNull
+    @Column(name = "startdate")
     private LocalDateTime startTime;
+
     @NotNull
+    @Column(name = "enddate")
     private LocalDateTime endingTime;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getFirstname() {
         return firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public LanguageLevel getLevel() {
+        return level;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+
+    public LocalDateTime getEndingTime() {
+        return endingTime;
     }
 
     public void setFirstname(final String firstname) {

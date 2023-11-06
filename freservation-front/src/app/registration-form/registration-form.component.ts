@@ -67,6 +67,6 @@ export class RegistrationFormComponent {
       email: this.emailValue,
       startTime: new Date(this.startingTimeValue).toISOString(),
       endingTime: new Date(this.endingTimeValue).toISOString(),
-    }
+    } as BookingRequest
   }
 }
