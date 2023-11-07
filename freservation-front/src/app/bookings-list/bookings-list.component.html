@@ -1,1 +1,10 @@
-<p>bookings-list works!</p>
+<div *ngFor="let bookingRequest of bookingRequests">
+  <div><strong>{{ bookingRequest.id }}</strong></div>
+  <div>firstname: {{ bookingRequest.firstname }}</div>
+  <div>lastname: {{ bookingRequest.lastname }}</div>
+  <div>email: {{ bookingRequest.email }}</div>
+  <div>level: {{ bookingRequest.level }}</div>
+  <div>starttime: {{ bookingRequest.startTime }}</div>
+  <div>endingtime: {{ bookingRequest.endingTime }}</div>
+  <div>bookingtime: {{ bookingRequest.bookingTime}}</div>
+</div>

@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 
 import { BookingRequest } from "../model";
 
-const BOOK_URL = 'http://localhost:8080/api/book';
+const API_URL = 'http://localhost:8080/api';
 
 @Injectable()
 export class BookingService {
@@ -12,12 +12,12 @@ export class BookingService {
   constructor(private httpClient: HttpClient) {}
 
   bookTimeSlot(body: BookingRequest): Observable<string> {
-    return this.httpClient.post(BOOK_URL, body, {responseType: 'text'});
+    return this.httpClient.post(`${API_URL}/book`, body, {responseType: 'text'});
   }
 
   // Promise version
   // bookTimeSlot(body: BookingRequest): Promise<Response> {
-  //   return fetch(BOOK_URL, {
+  //   return fetch(API_URL, {
   //     method: 'POST',
   //     body: JSON.stringify(body),
   //     headers: {
@@ -25,4 +25,8 @@ export class BookingService {
   //     }
   //   });
   // }
+
+  getAllBookings(): Observable<BookingRequest[]> {
+    return this.httpClient.get<BookingRequest[]>(`${API_URL}/bookings`);
+  }
 }
