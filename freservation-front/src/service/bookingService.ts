@@ -15,17 +15,6 @@ export class BookingService {
     return this.httpClient.post(`${API_URL}/book`, body, {responseType: 'text'});
   }
 
-  // Promise version
-  // bookTimeSlot(body: BookingRequest): Promise<Response> {
-  //   return fetch(API_URL, {
-  //     method: 'POST',
-  //     body: JSON.stringify(body),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     }
-  //   });
-  // }
-
   getAllBookings(): Observable<BookingRequest[]> {
     return this.httpClient.get<BookingRequest[]>(`${API_URL}/bookings`);
   }
