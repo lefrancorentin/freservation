@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegistrationFormComponent } from './registration-form.component';
+import { BookingsListComponent } from './bookings-list.component';
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 
-describe('RegistrationFormComponent', () => {
-  let component: RegistrationFormComponent;
-  let fixture: ComponentFixture<RegistrationFormComponent>;
+describe('BookingsListComponent', () => {
+  let component: BookingsListComponent;
+  let fixture: ComponentFixture<BookingsListComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        RegistrationFormComponent,
+        BookingsListComponent,
         HttpClientTestingModule
       ]
     });
-    fixture = TestBed.createComponent(RegistrationFormComponent);
+    fixture = TestBed.createComponent(BookingsListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

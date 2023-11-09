@@ -4,14 +4,13 @@ import { FormsModule, NgForm } from '@angular/forms';
 
 import { BookingRequest, LanguageLevel } from "../../model";
 import { BookingService } from 'src/service/bookingService';
-import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-registration-form',
   standalone: true,
   imports: [
     CommonModule,
-    HttpClientModule,
     FormsModule
   ],
   providers: [BookingService],

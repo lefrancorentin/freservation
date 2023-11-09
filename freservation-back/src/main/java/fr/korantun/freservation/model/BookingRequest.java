@@ -35,6 +35,10 @@ public class BookingRequest {
     @Column(name = "enddate")
     private LocalDateTime endingTime;
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "bookingdate", insertable = false)
+    private LocalDateTime bookingTime;
+
     public Long getId() {
         return id;
     }
@@ -89,5 +93,13 @@ public class BookingRequest {
 
     public void setEndingTime(final LocalDateTime endingTime) {
         this.endingTime = endingTime;
+    }
+
+    public LocalDateTime getBookingTime() {
+        return bookingTime;
+    }
+
+    public void setBookingTime(LocalDateTime bookingTime) {
+        this.bookingTime = bookingTime;
     }
 }
